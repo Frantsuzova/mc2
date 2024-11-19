@@ -863,7 +863,7 @@ main .intro-section {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-image: linear-gradient(rgba(16, 16, 16, 0.8), rgba(16, 16, 16, 0.8)), url('bg.jpg');
+  background-image: linear-gradient(rgba(16, 16, 16, 0.8), rgba(16, 16, 16, 0.8)), url('https://github.com/Frantsuzova/Chipmunk-co/blob/8a31228713007e3bbb1e7418d56ae287b62b983d/bg.jpg');
   background-position: center;
   background-size: cover;
 }
