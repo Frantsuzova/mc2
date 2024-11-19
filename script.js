@@ -157,13 +157,26 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Логика для переключателя языков
-document.querySelectorAll(".language-switcher a").forEach(link => {
+document.addEventListener("DOMContentLoaded", () => {
+  const langSwitcher = document.querySelector(".language-switcher");
+  const langLinks = langSwitcher.querySelectorAll("a");
+
+  langLinks.forEach(link => {
     link.addEventListener("click", event => {
       event.preventDefault();
-      const selectedLang = link.dataset.lang;
-      alert(`Язык переключён на: ${selectedLang}`); // позже будет переключение языков
+      const lang = link.getAttribute("data-lang");
+
+      // Загружаем соответствующий HTML-файл
+      fetch(`${lang === "ru" ? "index.html" : `index-${lang}.html`}`)
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector("main").innerHTML = new DOMParser().parseFromString(data, "text/html").querySelector("main").innerHTML;
+          history.pushState(null, "", link.href); // Меняем URL без перезагрузки
+        });
     });
   });
+});
+
   
  // Логика для открытия попапов
 document.querySelectorAll("[data-popup]").forEach(button => {
