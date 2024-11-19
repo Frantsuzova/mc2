@@ -146,15 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let sponsorList = document.querySelectorAll(".sponsors-list li");
   sponsorList.forEach(sponsor => observer.observe(sponsor));
 
-  // Baidu Map API
-  if (typeof BMap !== "undefined") {
-      let bmap = new BMap.Map("map");
-      let point = new BMap.Point(113.950148, 22.553891);
-      bmap.centerAndZoom(point, 18);
-  } else {
-      console.warn("Baidu Map API не загружен.");
-  }
-});
 
 // Логика для переключателя языков
 document.addEventListener("DOMContentLoaded", () => {
