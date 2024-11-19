@@ -85,6 +85,10 @@ header {
   text-decoration: none;
   margin: 0 5px;
 }
+.language-switcher a.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
 .language-switcher a:hover {
   text-decoration: underline;
 }
