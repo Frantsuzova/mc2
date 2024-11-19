@@ -863,7 +863,7 @@ main .intro-section {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-image: linear-gradient(rgba(16, 16, 16, 0.8), rgba(16, 16, 16, 0.8)), url('/bg.jpg');
+  background-image: linear-gradient(rgba(16, 16, 16, 0.8), rgba(16, 16, 16, 0.8)), url('./bg.jpg');
   background-position: center;
   background-size: cover;
 }
