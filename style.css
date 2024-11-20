@@ -89,6 +89,11 @@ header {
   text-decoration: underline;
 }
 
+.language-switcher a.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .logo {
   display: flex;
   align-items: center;

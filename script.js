@@ -149,11 +149,18 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Логика для переключателя языков
-document.querySelectorAll(".language-switcher a").forEach(link => {
-    link.addEventListener("click", event => {
-      event.preventDefault();
-      const selectedLang = link.dataset.lang;
-      alert(`Язык переключён на: ${selectedLang}`); // позже будет переключение языков
+document.addEventListener("DOMContentLoaded", () => {
+    const langSwitcher = document.querySelector(".language-switcher");
+    const langLinks = langSwitcher.querySelectorAll("a");
+  
+    langLinks.forEach(link => {
+      link.addEventListener("click", event => {
+        event.preventDefault();
+        const lang = link.getAttribute("data-lang");
+  
+        // Обновляем ссылку в URL
+        window.location.href = lang === "ru" ? "index.html" : `index-${lang}.html`;
+      });
     });
   });
   
@@ -191,4 +198,5 @@ document.querySelectorAll("[data-popup]").forEach(button => {
       }
     });
   });
+  
   
