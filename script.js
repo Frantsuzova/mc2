@@ -141,19 +141,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (marker) observer.observe(marker);
   let placeName = document.querySelector(".place-name");
   if (placeName) observer.observe(placeName);
-  let map = document.querySelector("#map");
-  if (map) observer.observe(map);
+
   let sponsorList = document.querySelectorAll(".sponsors-list li");
   sponsorList.forEach(sponsor => observer.observe(sponsor));
 
-  // Baidu Map API
-  if (typeof BMap !== "undefined") {
-      let bmap = new BMap.Map("map");
-      let point = new BMap.Point(113.950148, 22.553891);
-      bmap.centerAndZoom(point, 18);
-  } else {
-      console.warn("Baidu Map API не загружен.");
-  }
+ 
 });
 
 // Логика для переключателя языков
