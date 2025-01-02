@@ -3,4 +3,4 @@
 ## Основной стек:
 HTML, CSS, JavaScript
 
-https://frantsuzova.github.io/Chipmunk-co
+https://frantsuzova.github.io/c2m
