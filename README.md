@@ -3,4 +3,4 @@
 ## Основной стек:
 HTML, CSS, JavaScript
 
-https://frantsuzova.github.io/c2m
+https://frantsuzova.github.io/mc2
