@@ -154,14 +154,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const langLinks = langSwitcher.querySelectorAll("a");
   
     langLinks.forEach(link => {
-      link.addEventListener("click", event => {
-        event.preventDefault();
-        const lang = link.getAttribute("data-lang");
-  
-        // Обновляем ссылку в URL
-        window.location.href = lang === "ru" ? "index.html" : `index-${lang}.html`;
+        link.addEventListener("click", event => {
+          event.preventDefault();
+          const lang = link.getAttribute("data-lang");
+      
+          // Список поддерживаемых языков
+          const supportedLangs = ["ru", "sr", "en"];
+      
+          if (supportedLangs.includes(lang)) {
+            // Переключение на соответствующую страницу
+            window.location.href = lang === "ru" ? "index.html" : `index-${lang}.html`;
+          } else {
+            // Если язык не поддерживается, остаемся на текущей странице
+            showErrorPopup("Error: The selected language is not supported!");
+          }
+        });
       });
-    });
   });
   
  // Логика для открытия попапов
