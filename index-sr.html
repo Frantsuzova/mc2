@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AIMs - Уметност и иновације у музејима</title>
+  <title>mc2 - Уметност и иновације у музејима</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <a href="#home" class="logo"
-        ><img
-          width="250"
-          src="logo.png"
-        />
+      ><img
+        width="250"
+        src="logo.png"
+      />
+      &nbsp;с<sup style="font-size: 12px;">2</sup>&nbsp; command
+    </a>
     <nav class="site-nav">
       <ul class="underline-menu">
         <li><a href="#about">О нама</a></li>
@@ -28,36 +30,219 @@
       <a href="index-en.html">Енглески</a>
     </div>
   </header>
+  <input type="checkbox" id="burger-toggle" />
+    <label for="burger-toggle" class="burger-menu">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </label>
+    <div class="overlay"></div>
+    <nav class="burger-nav">
+      <ul>
+        <li><a href="#about">О нама</a></li>
+        <li><a href="#directions">Пројекти</a></li>
+        <li><a href="#aims">AIMs-2025</a></li>
+        <li><a href="#partners">Партнери</a></li>
+        <li><a href="#contacts">Контакт</a></li>
+      </ul>
+    </nav>
 
   <main>
-    <section id="home" class="intro-section">
-      <h1>Нови језик утисака за ваш музеј</h1>
-      <h2>Испричаћемо вашу причу спајајући уметност и технологије</h2>
-      <a class="btn btn-ghost btn-through" href="#contacts">Контактирајте нас</a>
+     <!-- Интро -->
+     <section class="intro-section" id="home">
+      <h1>
+        Нови језик утисака за ваш музеј
+      </h1>
+      <h2>испричаћемо вашу причу спајајући уметност и технологије</h2>
+      <a
+        class="btn btn-ghost btn-through"
+        href="#contacts"
+      >
+       контактирајте нас
+      </a>
     </section>
 
-    <section id="about" class="normal-section">
-      <h1>О нама</h1>
-      <p>Наша компанија се специјализује за креирање јединствених мултимедијалних решења за музеје, спајајући иновативне технологије и културно наслеђе. Наш циљ је да сваки пројекат постане фасцинантно путовање које дубоко повезује публику са уметношћу и историјом.</p>
+     <!-- Раздел "О нас" -->
+     <section class="normal-section dark-background" id="about">
+      <div class="titles">
+        <h1 class="cross-bar-glitch dark" data-slice="20">Наша мисија и циљеви</h1>
+      </div>
+      <div class="description">
+        <p class="fade-up">Наша компанија се специјализовала за креирање јединствених мултимедијалних решења за музеје, 
+          спајајући најновије технологије и научни приступ. 
+          Тежимо томе да сваки пројекат постане узбудљиво и значајно путовање које посетиоце уручује у свет уметности и историје. 
+          Наша решења помажу културним институцијама да корачају ка будућности, 
+          ангажујући публику у размишљања и проширујући њихово схватање културе.
+        </p>
+      </div>
+      <h1 class="cross-bar-glitch dark" data-slice="20" id="directions">Ми радимо:</h1>
+      <div class="project-cards">
+        <div class="card">
+          <div class="card-content">
+            <img src="pr.png" alt="Видео пројекције за музеје" class="avatar" />
+            <h3>Видео пројекције за музеје</h3>
+            <p>Ми креирамо високотехнолошке видео пројекције које претварају музејски простор у заводљиви свет визуелних прича.</p>
+            <a href="#" class="btn btn-ghost" data-popup="popup1">Сазнај више</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <img src="ar.jpg" alt="Интерфејси и AR интерфејси" class="avatar" />
+            <h3>Интерфејси и AR интерфејси</h3>
+            <p>Наши апликације омогућавају да се експонати виде на нови начин и позивају посматрача да се урони у историју чак и пре посете музеју.</p>
+            <br />
+            <a href="#" class="btn btn-ghost" data-popup="popup2">Сазнај више</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-cards">
+        <div class="card">
+          <div class="card-content">
+            <img src="audio.png" alt="аудио в музее" class="avatar" />
+            <h3>Аудио дизајн</h3>
+            <p>Ми креирамо звучне инсталације и интерактивне аудио елементе који прате и усмеравају посетиоца кроз музејски простор.</p>
+            <a href="#" class="btn btn-ghost" data-popup="popup3">Сазнај више</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <img src="ai.png" alt="Машинско учење" class="avatar" />
+            <h3>Машинско учење</h3>
+            <p>Ми ћемо помоћи у интегрисању вештачке интелигенције у ваш музеј, користећи моделе машинског учења за стварање интерактивних елемената изложбе.</p>
+            <br />
+            <a href="#" class="btn btn-ghost" data-popup="popup4">Сазнај више</a>
+          </div>
+        </div>
+      </div>
+      
     </section>
 
-    <section id="directions" class="normal-section">
-      <h1>Пројекти</h1>
-      <div class="speakers-cards">
-        <div class="card">
-          <h3>Међународни семинар AIMs</h3>
-          <p>Догађај који спаја стручњаке из области уметности и музеологије.</p>
-        </div>
-        <div class="card">
-          <h3>Видеопројекције за музеје</h3>
-          <p>Креирамо високотехнолошке пројекције које трансформишу музејски простор.</p>
-        </div>
-        <div class="card">
-          <h3>Допуњена стварност (AR)</h3>
-          <p>Омогућавамо нове перспективе кроз дигиталне технологије.</p>
+    <div id="popup1" class="popup hidden">
+      <div class="popup-content">
+        <span class="popup-close">&times;</span>
+        <h2>идео пројекције за музеје</h2>
+        <p></p>
+      </div>
+    </div>
+    
+    <div id="popup2" class="popup hidden">
+      <div class="popup-content">
+        <span class="popup-close">&times;</span>
+        <h2>Интерфејси и AR интерфејси</h2>
+        <p></p>
+      </div>
+    </div>
+
+    <div id="popup3" class="popup hidden">
+      <div class="popup-content">
+        <span class="popup-close">&times;</span>
+        <h2>Аудио дизајн</h2>
+        <p></p>
+      </div>
+    </div>
+
+    <div id="popup4" class="popup hidden">
+      <div class="popup-content">
+        <span class="popup-close">&times;</span>
+        <h2>Машинско учење</h2>
+        <p></p>
+      </div>
+    </div>
+
+
+    <!-- Раздел про AIMs -->
+    <section class="normal-section" id="aims">
+      <div class="titles">
+        <h1 class="cross-bar-glitch" data-slice="20">Cеминар AIMs</h1>
+      </div>
+      <div class="description">
+        <p class="fade-up">Међународни семинар AIMs се одржава сваке године у <b>јуну</b>, а током године се одржавају и мањи митапи. 
+          Тренутно се очни догађаји одржавају у Санкт Петербургу (Русија).</p>
+        <p class="fade-up">
+          Комуникација између посматрача и музеја у оквиру изложбе тесно је повезана с уметношћу причања прича. 
+          Нови начини вођења ове приче повезани су с могућностима мултимедијалних и дигиталних технологија. 
+          Њихова употреба у музејским изложбама пружа посматрачима могућност дубље интеракције са контекстом заснованим у изложби и ствара личну везу са представљеним материјалом.
+        </p>
+        <p class="fade-up">
+          Циљ семинара је дискутовање о стању, перспективама и правцима коришћења дигиталних технологија у музејима. 
+          Тако овај догађај представља платформу за дискусију о утицају дигиталних технологија у музејском окружењу, 
+          и подразумева присуство два компонента — <b>практични случајеви</b> и <b>научно осмишљавање</b>.
+        </p>
+        <p class="fade-up">
+          Наша <b>циљна публика</b> су кустоси изложби, 
+          IT стручњаци који производе дигитални и мултимедијални садржај за музеје, уметнички и културолошки стручњаци.
+        </p>
+        <p class="fade-up"><b>Кључни правци рада међународног семинара:</b></p>
+        <ul> 
+          <li><b>Сценографија:</b> проблеми и начини развоја концепата визуелног представљања изложбе; рад с осветљењем и просторном композицијом; теорија боја у оквиру задатака дизајна изложбе.</li> 
+          <li><b>Причање приче:</b> избор језика нарације; рад са експонатима; координација рада кустоса и дизајнера; проблеми ефикасног преношења информација.</li> 
+          <li><b>Интерактивно путовање:</b> интеграција интерактивних елемената у изложбу (AR, VR); креирање путања и сценарија за ангажовање посетилаца; развој интерактивних инсталација; креирање визуелних и звучних ефеката.</li> 
+          <li><b>Искуство посетиоца:</b> резултати истраживања посвећени анализи перцепције и утицаја визуелних елемената сценографије на посетиоце, као и ефикасности путања и сценарија.</li> 
+        </ul>
+
+        <p class="fade-up">
+          <em>
+            Пратите наше најаве и заједно преиспитајмо како технологије могу служити уметности, 
+            откривајући нове хоризонте интеракције музеја са њиховим посетиоцима.
+          </em>
+        </p>
+      </div>          
+    </section>
+
+     <!-- Раздел "Расписание" -->
+     <section class="normal-section dark-background" id="infoaims">
+      <div class="titles">
+        <img src="aims_logo.png" alt="aims-2025" class="avatar" />
+
+        <h1 class="cross-bar-glitch dark" data-slice="20">AIMs'25: распоред</h1> 
+        <div class="description">
+          <p class="fade-up">Најава говорника и распоред семинара за 2025. годину биће објављена касније.</p>
+
+          <div class="place">
+            <div class="marker fade-in">
+              <div class="pin"></div>
+              <div class="shadow"></div>
+            </div>
+            <div class="place-name cross-bar-glitch dark" data-slice="20">Санкт Петербург</div>
+          </div>
         </div>
       </div>
     </section>
+    
+    <!-- Раздел "Партнеры" -->
+  <section class="normal-section" id="partners">
+    <div class="titles">
+    <h1 class="cross-bar-glitch" data-slice="20">Наши партнери</h1>
+  </div>
+</section>
+
+<!-- Раздел "Контактов" -->
+<section class="normal-section dark-background" id="contacts">
+  <div class="titles">
+    <h1 class="cross-bar-glitch dark" data-slice="20">Будем на связи!</h1>
+    
+  </div>
+  <div class="contact-form">
+    <form id="contact-form"  action="mailto:your-email@example.com" method="post" enctype="text/plain">
+      <label for="name">Ваше име</label>
+      <input type="text" id="name" name="name" required placeholder="Унесите ваше име" />
+      
+      <label for="email">Ваша е-маил адреса</label>
+      <input type="email" id="email" name="email" required placeholder="Унесите вашу е-маил адресу" />
+      
+      <label for="message">Порука</label>
+      <textarea id="message" name="message" rows="4" required placeholder="Напишите вашу поруку"></textarea>
+      
+      <button type="submit" class="btn btn-ghost">Пошаљи</button>
+    </form>
+  </div>
+  
+</section>
+
+
   </main>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
