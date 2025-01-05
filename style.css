@@ -931,7 +931,7 @@ main #about {
 main #about .description {
   display: grid;
   gap: 24px;
-  width: 60vw;
+  width: 70vw;
 }
 main #about .description p:nth-child(1) {
   animation-delay: 0.6s;
@@ -949,7 +949,7 @@ main #about .description p:nth-child(4) {
 main #aims .description {
   display: grid;
   gap: 24px;
-  width: 60vw; /* Ограничивает ширину содержимого до 60% ширины окна */
+  width: 70vw; /* Ограничивает ширину содержимого до 60% ширины окна */
  
 }
 
@@ -964,6 +964,22 @@ main #aims .description {
   padding: 20px 0; /* Отступы сверху и снизу */
   box-sizing: border-box; /* Учитываем паддинги */
 }
+/* Медиазапрос для планшетов */
+@media (max-width: 1024px) {
+  .project-cards {
+    margin-right: 10vw; /* Пропорциональное уменьшение отступа справа */
+    margin-left: 5vw; /* Пропорциональное уменьшение отступа слева */
+  }
+}
+
+/* Медиазапрос для телефонов */
+@media (max-width: 768px) {
+  .project-cards {
+    margin-right: 5vw; /* Пропорциональное уменьшение отступа справа */
+    margin-left: 5vw; /* Пропорциональное уменьшение отступа слева */
+  }
+}
+
 @media screen and (max-width: 750px) {
   main #directions .project-cards {
     margin: 0;
@@ -1052,6 +1068,7 @@ main #sponsors .sponsors-list li a img {
 /* Форма */
 .contact-form {
   display: flex;
+  padding: 10px;
   flex-direction: column;
   gap: 10px;
   max-width: 650px;
