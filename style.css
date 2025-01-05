@@ -183,7 +183,7 @@ header {
 .burger-menu {
   --burger-menu-radius: 4em;
   position: fixed;
-  top: 25px;
+  top: 65px;
   right: 60px;
   z-index: 100;
   display: none;
@@ -862,6 +862,8 @@ main section p {
   margin: 0;
 }
 main .intro-section {
+  padding-top: 25px; 
+
   height: 100%;
   display: flex;
   flex-direction: column;
