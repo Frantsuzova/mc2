@@ -1173,3 +1173,57 @@ main #sponsors .sponsors-list li a img {
 .language-switcher a:hover {
   text-decoration: underline;
 }
+
+
+.keywords-block {
+  background-color: #2d2d2d;
+  color: #c5c8c6;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  width: fit-content;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+.keywords-label{
+  font-weight: bold;
+  color: #81a2be; /* Светло-голубой оттенок для выделения */
+}
+.blinking-cursor {
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.language-switcher {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+  padding: 10px 15px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.language-switcher a {
+  color: #fff; /* Цвет текста */
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.language-switcher a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+

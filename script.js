@@ -207,4 +207,52 @@ document.querySelectorAll("[data-popup]").forEach(button => {
     });
   });
   
-  
+
+//letters
+function submitForm(event) {
+    event.preventDefault(); // Прекращаем стандартное поведение формы (перенаправление)
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    // Отправляем данные в Formspree
+    fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json',
+        },
+    })
+    .then(response => {
+        if (response.ok) {
+            // Если отправка успешна, показываем попап и очищаем форму
+            showPopup();
+            clearForm(form); // Очищаем форму
+        } else {
+            alert("Ошибка при отправке сообщения.");
+        }
+    })
+    .catch(error => {
+        alert("Ошибка при отправке сообщения.");
+    });
+}
+
+// Функция для отображения попапа
+function showPopup() {
+    const popup = document.getElementById("popup-success");
+    popup.style.display = "block";
+}
+
+// Функция для закрытия попапа
+function closePopup() {
+    const popup = document.getElementById("popup-success");
+    popup.style.display = "none";
+}
+
+// Функция для очистки данных формы
+function clearForm(form) {
+    form.reset(); // Метод reset() очищает все поля формы
+}
+
+
+
