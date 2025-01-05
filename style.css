@@ -451,6 +451,20 @@ header {
   white-space: nowrap;
 }
 
+/* Медиазапрос для планшетов */
+@media (max-width: 1024px) {
+  .cross-bar-glitch {
+    font-size: 1.8rem; /* Уменьшаем размер шрифта для планшетов */
+  }
+}
+
+/* Медиазапрос для мобильных устройств */
+@media (max-width: 768px) {
+  .cross-bar-glitch {
+    font-size: 1.5rem; /* Уменьшаем размер шрифта для мобильных устройств */
+  }
+}
+
 .cross-bar-glitch.dark {
   color: white; /* Цвет текста для тёмного фона */
 }
@@ -889,6 +903,8 @@ main .intro-section h2 {
   font-size: 24px;
   font-weight: lighter;
 }
+
+
 @media screen and (max-width: 750px) {
   main .intro-section h1 {
     font-size: 25px;
@@ -898,6 +914,7 @@ main .intro-section h2 {
   }
   main .aims h1 {
     font-size: 25px;
+    
   }
 }
 main .normal-section {
@@ -913,7 +930,7 @@ main .normal-section .titles {
   flex-direction: column; /* Размещаем заголовки вертикально */
   align-items: center; /* Центрируем заголовки */
   gap: 0.1rem; /* Определяем расстояние между заголовками */
-  line-height: 0.9;
+  line-height: 1.2;
   margin: 0; /* Убираем внешние отступы */
 
 }
@@ -1029,6 +1046,7 @@ main #sponsors .sponsors-list li a img {
     margin: 0;
   }
 }
+
 
 /* Адаптивность для секции #aims */
 @media screen and (max-width: 768px) {
