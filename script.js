@@ -254,5 +254,37 @@ function clearForm(form) {
     form.reset(); // Метод reset() очищает все поля формы
 }
 
+// Функция для отслеживания активного пункта меню при прокрутке
+function setActiveMenu() {
+    const sections = document.querySelectorAll('section'); // Все секции на странице
+    const menuLinks = document.querySelectorAll('.underline-menu li'); // Все пункты меню
+    
+    let currentSection = null;
+
+    sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        
+        // Проверяем, если секция находится в области видимости
+        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+            currentSection = menuLinks[index]; // Определяем активный раздел
+        }
+    });
+
+    // Если активный пункт найден, добавляем класс .active, иначе убираем
+    menuLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+
+    if (currentSection) {
+        currentSection.classList.add('active');
+    }
+}
+
+// Добавляем обработчик события для прокрутки
+window.addEventListener('scroll', setActiveMenu);
+
+// Вызываем функцию при загрузке страницы для корректного отображения
+document.addEventListener('DOMContentLoaded', setActiveMenu);
+
 
 
