@@ -1268,6 +1268,35 @@ main #sponsors .sponsors-list li a img {
 }
 
 
+.partner-logos {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap; /* Разрешаем элементам переноситься на новую строку */
+  padding: 20px 0;
+}
+
+.partner-logo {
+  width: auto; /* Ограничивает максимальную ширину логотипов */
+  height: 150px; /* Поддерживает пропорции изображений */
+  margin-right: 30px;
+}
+
+/* Медиазапрос для мобильных устройств */
+@media (max-width: 768px) {
+  .partner-logos {
+    flex-direction: column; /* Ставим элементы в вертикальный столбец */
+    align-items: center; /* Центрируем элементы по горизонтали */
+  }
+
+  .partner-logo {
+    margin-bottom: 20px;
+    height: 100px;
+  }
+}
+
+
+
 
 
 
