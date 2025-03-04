@@ -287,4 +287,15 @@ window.addEventListener('scroll', setActiveMenu);
 document.addEventListener('DOMContentLoaded', setActiveMenu);
 
 
+// определяем язык
+document.addEventListener("DOMContentLoaded", () => {
+    const defaultLang = 'ru'; // Язык по умолчанию
+    const supportedLangs = ['en', 'sr', 'fr', 'ru']; // Список поддерживаемых языков
+    let userLang = navigator.language.slice(0, 2).toLowerCase(); // Получение двухбуквенного кода языка пользователя
+
+    // Проверяем, поддерживается ли язык пользователя
+    if (supportedLangs.includes(userLang) && userLang !== defaultLang) {
+        window.location.href = `index-${userLang}.html`; // Перенаправление на страницу на языке пользователя
+    }
+});
 

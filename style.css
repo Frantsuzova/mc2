@@ -972,7 +972,7 @@ main #aims .description {
 
 
 .project-cards {
-  margin-right: 200px; /* Отступ справа, чтобы карточки не мешали меню */
+  margin-right: 220px; /* Отступ справа, чтобы карточки не мешали меню */
   margin-left: 50px;
   display: flex;
   flex-wrap: wrap;

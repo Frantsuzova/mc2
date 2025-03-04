@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <meta name="keywords" content="museum, technology" />
+  <meta name="author" content="Анна Чижик" />
+  <title>mc2: art and innovations in museums</title>
+</head>
+
+<body class="page">
+  
+  <main>
+    
+    <div class="cursor"></div>
+    <div class="cursor-border"></div>
+    <header>
+      <a href="#home" class="logo"
+        ><img
+          width="250"
+          src="logo.png"
+        />
+        &nbsp;с<sup style="font-size: 12px;">2</sup>&nbsp; command
+      </a>
+      <nav class="site-nav">
+        <ul class="underline-menu">
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#directions">Projets</a></li>
+            <li><a href="#aims">AIMs-2025</a></li>
+            <li><a href="#partners">Partenaires</a></li>
+            <li><a href="#contacts">Contacts</a></li>
+        </ul>
+        
+
+      </nav>
+      <div class="language-switcher">
+        <a href="index.html" class="lang active" data-lang="ru">RU</a> | 
+        <a href="index-sr.html" class="lang" data-lang="sr">SR</a> | 
+        <a href="index-en.html" class="lang" data-lang="en">EN</a> |
+        <a href="index-fr.html" class="lang" data-lang="fr">FR</a>
+      </div>
+      
+    </header>
+    <input type="checkbox" id="burger-toggle" />
+    <label for="burger-toggle" class="burger-menu">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </label>
+    <div class="overlay"></div>
+    <nav class="burger-nav">
+        <ul>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#directions">Projets</a></li>
+            <li><a href="#aims">AIMs-2025</a></li>
+            <li><a href="#partners">Partenaires</a></li>
+            <li><a href="#contacts">Contacts</a></li>
+        </ul>
+        
+    </nav>
+    <main>
+      <!-- Интро -->
+      <section class="intro-section" id="home">
+        <h1>
+            Un nouveau langage d'expériences<br /> dans votre musée
+          </h1>
+          <h2>
+            Nous raconterons votre histoire en fusionnant l'art et la technologie
+          </h2>
+          <a
+            class="btn btn-ghost btn-through"
+            href="#contacts"
+          >
+            Contactez-nous
+          </a>
+          
+      </section>
+
+      <!-- Раздел "О нас" -->
+      <section class="normal-section dark-background" id="about">
+        <div class="titles">
+          <h1 class="cross-bar-glitch dark" data-slice="20">Notre mission et nos objectifs</h1>
+        </div>
+        <div class="description">
+          <p class="fade-up">Notre équipe se spécialise dans la création de solutions multimédias uniques pour les musées,
+            en combinant des technologies de pointe et une approche scientifique. Nous nous efforçons de faire en sorte que chaque projet devienne un voyage captivant et significatif,
+            qui plonge les visiteurs dans le monde de l'art et de l'histoire.
+            Nos développements aident les institutions culturelles à avancer vers l'avenir,
+            en engageant le public dans la réflexion et en élargissant leur perception de la culture.
+          </p>
+        </div>
+        <h1 class="cross-bar-glitch dark" data-slice="20" id="directions">Ce que nous faisons :</h1>
+        
+        <div class="project-cards">
+          <div class="card">
+            <div class="card-content">
+              <img src="pr.png" alt="Projections vidéo pour musées" class="avatar" />
+              <h3>Projections vidéo pour musées</h3>
+              
+              <p>Nous mettons en scène et créons des projections vidéo qui transforment l'espace muséal en un monde captivant d'histoires visuelles.</p>
+              <br />
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <img src="ar.jpg" alt="Interfaces et interfaces AR" class="avatar" />
+              <h3>Interfaces et AR</h3>
+              <br />
+              <p>Nos applications permettent de découvrir les expositions sous un nouvel angle et invitent les visiteurs à plonger dans l'histoire avant même leur visite au musée.</p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-content">
+              <img src="audio.png" alt="conception audio dans les musées" class="avatar" />
+              <h3>Design audio</h3>
+              <br />
+              <p>Nous créons des installations sonores et des éléments audio interactifs qui guident et accompagnent le visiteur à travers l'espace muséal.</p>
+              <br />
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <img src="ai.png" alt="apprentissage automatique et musées" class="avatar" />
+              <h3>Apprentissage automatique</h3>
+              <p>Nous vous aidons à intégrer l'IA dans votre musée, en utilisant des modèles d'apprentissage automatique pour créer des éléments d'exposition interactifs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <div id="popup1" class="popup hidden">
+        <div class="popup-content">
+          <span class="popup-close">&times;</span>
+          <h2>Projections vidéo pour musées</h2>
+          <p></p> <!-- Сюда можно добавить дополнительное описание, если оно есть -->
+        </div>
+      </div>
+      
+      <div id="popup2" class="popup hidden">
+        <div class="popup-content">
+          <span class="popup-close">&times;</span>
+          <h2>Interfaces et AR</h2>
+          <p></p> <!-- Сюда можно добавить дополнительное описание, если оно есть -->
+        </div>
+      </div>
+      
+      <div id="popup3" class="popup hidden">
+        <div class="popup-content">
+          <span class="popup-close">&times;</span>
+          <h2>Design audio</h2>
+          <p></p> <!-- Сюда можно добавить дополнительное описание, если оно есть -->
+        </div>
+      </div>
+      
+      <div id="popup4" class="popup hidden">
+        <div class="popup-content">
+          <span class="popup-close">&times;</span>
+          <h2>Apprentissage automatique</h2>
+          <p></p> <!-- Сюда можно добавить дополнительное описание, если оно есть -->
+        </div>
+      </div>
+      
+      
+      <!-- Раздел про AIMs -->
+      <section class="normal-section" id="aims">
+        <div class="titles">
+          <h1 class="cross-bar-glitch" data-slice="20">Séminaire AIMs</h1>
+        </div>
+        <div class="description">
+          <p class="fade-up">
+            Explorez les perspectives d'intégration des technologies numériques dans l'espace muséal lors de notre séminaire annuel AIMs.
+          </p>
+          <p class="fade-up">
+            <b>Quand</b> : 25 juin 2025
+            <br />
+            <b>Où</b> : Saint-Pétersbourg, Russie
+          </p>
+          <p class="fade-up">
+            <b>Public cible</b> : Spécialistes IT créant du contenu numérique et multimédia pour les musées ; conservateurs ; historiens de l'art et culturels.
+          </p>
+          <p class="fade-up">
+            Notre <b>public cible</b> comprend les conservateurs d'expositions, les spécialistes IT, les producteurs de contenu numérique et multimédia pour les musées, les historiens de l'art et les culturels.
+          </p>
+          <p class="fade-up"><b>Principales orientations du séminaire international :</b></p>
+          <ul>
+            <li><b>Scénographie :</b> problèmes et méthodes de développement des concepts de présentation visuelle des expositions ; travail sur l'éclairage et la composition spatiale ; théorie de la couleur dans le cadre de la conception d'exposition.</li>
+            <li><b>Raconter l'histoire :</b> choix du langage narratif ; travail avec les objets exposés ; communication entre conservateurs et designers ; problèmes de transmission efficace de l'information.</li>
+            <li><b>Voyage interactif :</b> intégration d'éléments interactifs dans l'exposition (AR, VR) ; création de parcours et de scénarios pour engager les visiteurs ; développement d'installations interactives ; création d'effets visuels et sonores.</li>
+            <li><b>Interfaces interactives :</b> développement et mise en œuvre d'applications et de panneaux interactifs qui offrent de nouvelles façons d'interagir avec le contenu muséal.</li>
+            <li><b>Design audio :</b> création de guides audio, d'installations sonores et d'éléments audio interactifs.</li>
+            <li><b>Analyse de données et apprentissage automatique :</b> utilisation de données et intelligence artificielle pour la personnalisation des visites.</li>
+            <li><b>Expérience du visiteur :</b> résultats de recherches consacrées à l'analyse de la perception et de l'impact des éléments visuels de la scénographie sur les visiteurs, ainsi que l'efficacité des parcours et des scénarios.</li>
+          </ul>
+          
+          <div class="keywords-block">
+            <span class="keywords-label">Mots-clés :</span>
+            scénographie numérique, interfaces, réalité augmentée, réalité virtuelle, apprentissage automatique, projections vidéo, installations, design audio, interactivité, personnalisation de l'expérience du visiteur<span class="blinking-cursor" style="color: #c5c8c6;">|</span>
+          </div>
+          <p class="fade-up">
+            <b>Devenir intervenant</b> : soumettez votre candidature avec un résumé de votre intervention à <a href="mailto:aim-seminar@yandex.ru" class="keywords-label">aim-seminar@yandex.ru</a>.
+            <br />
+          </p>
+          <p class="fade-up">
+            <b>Rejoignez-nous</b> pour discuter de la manière dont les technologies peuvent enrichir l'expérience muséale.
+          </p>
+        </div>          
+      </section>
+      
+      
+      
+    <!-- Раздел "Расписание" -->
+    <section class="normal-section dark-background" id="infoaims">
+        <div class="titles">
+          <img src="aims_logo.png" alt="aims-2025" class="avatar" />
+      
+          <h1 class="cross-bar-glitch dark" data-slice="20">AIMs'25 : Programme</h1>
+          <div class="description">
+            <p class="fade-up">L'annonce des intervenants et le programme du séminaire pour 2025 seront publiés ultérieurement.</p>
+      
+            <div class="place">
+              <div class="marker fade-in">
+                <div class="pin"></div>
+                <div class="shadow"></div>
+              </div>
+              <div class="place-name cross-bar-glitch dark" data-slice="20">Saint-Pétersbourg</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+  <!-- Раздел "Партнеры" -->
+  <section class="normal-section" id="partners">
+    <div class="titles">
+      <h1 class="cross-bar-glitch" data-slice="20">Nos partenaires</h1>
+    </div>
+    <div class="partner-logos">
+      <a href="https://theatremuseum.ru/">
+        <img src="./tm.png" alt="musée du théâtre" class="partner-logo">
+      </a>
+      <a href="https://gmgs.ru/">
+        <img src="./GMGS.jpg" alt="musée de la sculpture urbaine" class="partner-logo">
+      </a>
+      <a href="https://spbsh.ru/">
+        <img src="./sh.jpg" alt="union des artistes" class="partner-logo">
+      </a>
+    </div>
+  </section>
+  
+  
+
+  <!-- Раздел "Контактов" -->
+  <section class="normal-section dark-background" id="contacts">
+    <div class="titles">
+      <h1 class="cross-bar-glitch dark" data-slice="20">Restons en contact !</h1>
+    </div>
+    <div class="contact-form">
+      <form id="contact-form" action="https://formspree.io/f/xovvplde" method="POST" onsubmit="submitForm(event)">
+        <label for="name">Votre nom</label>
+        <input type="text" name="name" required placeholder="Entrez votre nom" />
+        
+        <label for="email">Votre e-mail</label>
+        <input type="email" name="email" required placeholder="Entrez votre e-mail" />
+        
+        <label for="message">Message</label>
+        <textarea name="message" rows="4" required placeholder="Écrivez votre message ici"></textarea>
+        
+        <button type="submit" class="btn btn-ghost">Envoyer</button>
+      </form>
+      
+      <!-- Popup de succès -->
+      
+      <div class="popup hidden" id="popup-success" style="display:none;">
+        <div class="popup-content">
+          <span class="popup-close">&times;</span>
+          <h2>Votre message a été envoyé !</h2>
+          <p>Merci de nous avoir contactés. Nous vous répondrons dès que possible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+</main>
+
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
