@@ -289,13 +289,22 @@ document.addEventListener('DOMContentLoaded', setActiveMenu);
 
 // определяем язык
 document.addEventListener("DOMContentLoaded", () => {
-    const defaultLang = 'ru'; // Язык по умолчанию
-    const supportedLangs = ['en', 'sr', 'fr', 'ru']; // Список поддерживаемых языков
-    let userLang = navigator.language.slice(0, 2).toLowerCase(); // Получение двухбуквенного кода языка пользователя
+    const langSwitcher = document.querySelector(".language-switcher");
+    const langLinks = langSwitcher.querySelectorAll("a");
+  
+    langLinks.forEach(link => {
+        link.addEventListener("click", event => {
+          event.preventDefault();  // Отменяем стандартное поведение ссылки
+          const lang = link.getAttribute("data-lang");
+          const currentLang = document.documentElement.lang; // Получаем текущий язык страницы
 
-    // Проверяем, поддерживается ли язык пользователя
-    if (supportedLangs.includes(userLang) && userLang !== defaultLang) {
-        window.location.href = `index-${userLang}.html`; // Перенаправление на страницу на языке пользователя
-    }
+          // Переключаем только если выбран другой язык
+          if (lang !== currentLang) {
+            // Переключение на соответствующую страницу
+            window.location.href = lang === "ru" ? "index.html" : `index-${lang}.html`;
+          }
+        });
+    });
 });
+
 
