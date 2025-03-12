@@ -1300,9 +1300,9 @@ main #sponsors .sponsors-list li a img {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 10px;
+    max-width: 1000px;
+    margin-right: 40px;
     padding: 40px 20px;
 }
 
