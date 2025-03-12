@@ -1296,24 +1296,41 @@ main #sponsors .sponsors-list li a img {
 }
 
 /*вмешалась*/
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Левая колонка */
+.about-description {
+    flex: 1;
+    max-width: 50%;
+    color: white;
+}
+
+/* Правая колонка */
 .citations-block {
-    background-color: #2d2d2d; /* Цвет блока в стиле сайта */
+    flex: 1;
+    max-width: 40%;
+    background-color: #2d2d2d;
     color: #c5c8c6;
     padding: 20px;
     border-radius: 8px;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    max-width: 600px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: relative;
-    margin: 40px auto;
     line-height: 1.5;
 }
 
 .citations-label {
     font-weight: bold;
     font-size: 18px;
-    color: #81a2be; /* Голубой цвет, как в keywords-block */
+    color: #81a2be;
     display: block;
     margin-bottom: 10px;
 }
@@ -1321,7 +1338,7 @@ main #sponsors .sponsors-list li a img {
 .citation {
     margin-top: 15px;
     padding-left: 15px;
-    border-left: 4px solid #81a2be; /* Линия слева, как в дизайнерских блоках */
+    border-left: 4px solid #81a2be;
 }
 
 .citation p {
@@ -1338,16 +1355,20 @@ main #sponsors .sponsors-list li a img {
     margin-top: 5px;
 }
 
-/* Для адаптации на мобильных */
+/* Адаптивность: на мобильных div'ы становятся вертикальными */
 @media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-description,
     .citations-block {
         max-width: 90%;
-        font-size: 14px;
+    }
+
+    .citations-block {
+        margin-top: 20px;
     }
 }
-
-
-
-
-
-
