@@ -1311,7 +1311,7 @@ main #sponsors .sponsors-list li a img {
 /* Левая колонка */
 .about-description {
     flex: 1;
-    max-width: 40%;
+    max-width: 30%;
     color: white;
 }
 
