@@ -24,11 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Cursor Follow & Hover Effect https://codepen.io/alphardex/pen/jOEgYjr
-  let cursor = document.querySelector(".cursor");
-  let cursorBorder = document.querySelector(".cursor-border");
+  //let cursor = document.querySelector(".cursor");
+  //let cursorBorder = document.querySelector(".cursor-border");
 
   // Функция для вычисления координат
-  let getXY = (event, element) => {
+ /* let getXY = (event, element) => {
       let x = event.clientX;
       let y = event.clientY;
       let rect = element.getBoundingClientRect();
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
           cursorBorder.animate([{ opacity: 0.8 }, { opacity: 0 }], { duration: 500, fill: "forwards" });
       }
   });
-
+*/
   // Cross Bar Glitch Text https://codepen.io/alphardex/pen/VwLLLNG
   const random = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
   let crossBarGlitchTexts = document.querySelectorAll(".cross-bar-glitch");
@@ -308,3 +308,40 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const slides = document.querySelectorAll(".citation");
+    const nextBtn = document.querySelector(".next-btn");
+    let currentSlide = 0;
+    let interval;
+
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove("active"));
+        slides[index].classList.add("active");
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function startAutoSlide() {
+        interval = setInterval(nextSlide, 10000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(interval);
+    }
+
+    nextBtn.addEventListener("click", function () {
+        stopAutoSlide();
+        nextSlide();
+        startAutoSlide();
+    });
+
+    // Инициализация
+    showSlide(currentSlide);
+    startAutoSlide();
+});

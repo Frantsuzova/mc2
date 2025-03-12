@@ -416,6 +416,7 @@ header {
   transform: scaleX(1);
   transform-origin: left;
 }
+/*
 .cursor, .cursor-border {
   position: fixed;
   top: 0;
@@ -441,6 +442,7 @@ header {
   background: rgba(51, 152, 219, 0.5);
   border-color: transparent;
 }
+  */
 .cross-bar-glitch {
   position: relative;
   font-size: 2rem;
@@ -1309,66 +1311,152 @@ main #sponsors .sponsors-list li a img {
 /* Левая колонка */
 .about-description {
     flex: 1;
-    max-width: 50%;
+    max-width: 40%;
     color: white;
 }
 
 /* Правая колонка */
 .citations-block {
-    flex: 1;
-    max-width: 40%;
-    background-color: #2d2d2d;
-    color: #c5c8c6;
-    padding: 20px;
-    border-radius: 8px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    line-height: 1.5;
+  position: relative;
+  background-color: #2d2d2d;
+ 
+  color: #c5c8c6;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  line-height: 1.5;
+  width: 500px;
+  min-height: 400px; /* Фиксированная высота */
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
 }
 
 .citations-label {
-    font-weight: bold;
-    font-size: 18px;
-    color: #81a2be;
-    display: block;
-    margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #81a2be;
+  display: block;
+  margin-bottom: 10px;
 }
 
+/* Контейнер для цитат */
+.slider {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+/* Цитата (изменяется внутри блока) */
 .citation {
-    margin-top: 15px;
-    padding-left: 15px;
-    border-left: 4px solid #81a2be;
+  text-align: left;
+  display: none;
+  padding: 10px;
+  padding-left: 15px;
+  border-left: 4px solid #81a2be;
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  width: 100%;
+}
+
+.citation.active {
+  display: block;
+  opacity: 1;
 }
 
 .citation p {
-    font-size: 14px;
-    font-style: italic;
-    color: #ddd;
-    margin: 5px 0;
+  font-size: 14px;
+  font-style: italic;
+  color: #ddd;
+  margin: 5px 0;
 }
 
+/*
 .citation-author {
-    font-size: 12px;
-    color: #81a2be;
-    display: block;
-    margin-top: 5px;
+  font-size: 12px;
+  color: #81a2be;
+  display: block;
+  margin-top: 10px;
+}
+  */
+
+/* Контейнер для подписи */
+.citation-meta {
+  display: flex;
+  justify-content: left;
+  margin-top: 10px;
 }
 
-/* Адаптивность: на мобильных div'ы становятся вертикальными */
-@media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .about-description,
-    .citations-block {
-        max-width: 90%;
-    }
-
-    .citations-block {
-        margin-top: 20px;
-    }
+/* Ссылка с иконкой 🎥 */
+.citation-video-link {
+  font-size: 12px;
+  color: #81a2be;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s ease-in-out;
 }
+
+/* Изменение цвета при наведении */
+.citation-video-link:hover {
+  color: #b0d0e8;
+  text-decoration: underline;
+}
+
+
+/* Кнопка переключения */
+.next-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  background: none;
+ /* border: 2px solid #81a2be;*/
+  color: #81a2be;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 30%; 
+  transition: 0.3s ease-in-out;
+}
+
+.next-btn:hover {
+  background: #81a2be;
+  color: #2d2d2d;
+  box-shadow: 0 0 10px rgba(129, 162, 190, 0.8);
+}
+
+/* Адаптивность */
+
+@media (max-width: 1207px) {
+  .citations-block {
+    width: 300px;
+    min-height: 650px;
+      
+  }
+}
+
+
+
+@media (max-width: 935px) {
+  .about-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-top: 0;
+  }
+
+  .about-description{
+    max-width: 70%;
+  }
+  .citations-block {
+      max-width: 100%;
+  }
+
+  .citations-block {
+      margin-top: 20px;
+  }
+}
+
