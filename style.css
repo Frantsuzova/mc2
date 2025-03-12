@@ -948,7 +948,7 @@ main #about {
 main #about .description {
   display: grid;
   gap: 24px;
-  width: 70vw;
+  width: 40vw;
 }
 main #about .description p:nth-child(1) {
   animation-delay: 0.6s;
