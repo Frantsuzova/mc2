@@ -907,7 +907,7 @@ main .intro-section h2 {
 }
 
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1170px) {
   main .intro-section h1 {
     font-size: 25px;
   }
@@ -1439,16 +1439,35 @@ main #sponsors .sponsors-list li a img {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1090px) {
   .citations-block {
-    width: 300px;
-    height: 650px;
-    margin-left: 0px;
-    margin-right: 50px;
+    width: 60%;
+    
+    margin-left: 150px;
+    
   }
+
+}
+
+@media (max-width: 780px) {
+  .citations-block {
+    width: 80%;
+    margin-left: 0px;
+   
+  }
+  
   .about-description {
-    margin-right: 50px;
     margin-left: 0px;
   }
 
+}
+
+@media (max-width: 780px) {
+  .citations-block {
+    width: 100%;
+    min-height: 650px;
+  }
+  .about-description {
+    width: 100%;
+  }
 }
