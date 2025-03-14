@@ -463,7 +463,7 @@ header {
 /* Медиазапрос для мобильных устройств */
 @media (max-width: 768px) {
   .cross-bar-glitch {
-    font-size: 1rem; /* Уменьшаем размер шрифта для мобильных устройств */
+   
   }
 }
 
@@ -984,7 +984,14 @@ main #aims .description {
 
 @media (max-width: 1300px) {
   .project-cards {
-    grid-template-columns: repeat(2, calc(55% - 10px)); /* Adjust width for two cards per row */
+    grid-template-columns: repeat(2, calc(50% - 10px)); /* Adjust width for two cards per row */
+    margin: 20px 20px 20px 20px;
+  }
+}
+
+@media (max-width: 1110px) {
+  .project-cards {
+    grid-template-columns: repeat(2, calc(42% - 10px)); /* Adjust width for two cards per row */
     margin: 20px 20px 20px 20px;
   }
 }
@@ -1296,13 +1303,11 @@ main #sponsors .sponsors-list li a img {
   grid-template-columns: 2fr 4fr; /* Adjust the proportion between the two columns */
   gap: 50px; /* Maintains space between columns */
   max-width: 900px;
-  margin: 0 auto; /* Centers the container within its parent */
-  padding: 40px 20px;
-  align-items: start; /* Aligns items to the top of the container */
 }
 
 /* Styles for the left column */
 .about-description {
+  margin: 0 auto;
   grid-column: 1 / 2; /* Occupies the first column */
   color: white; /* Text color */
   display: flex;
@@ -1323,7 +1328,7 @@ main #sponsors .sponsors-list li a img {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   line-height: 1.5;
   width: 100%; /* Takes full width of the grid column */
-  min-height: 500px; /* Fixed height */
+ 
   overflow: hidden;
   text-align: center;
 }
@@ -1417,8 +1422,6 @@ main #sponsors .sponsors-list li a img {
 @media (max-width: 1207px) {
   .about-container {
       grid-template-columns: 1fr; /* Changes to a single column layout */
-      
-      align-items: center;
       max-width: 70%;
       padding: 20px 20px; /* Optional: Adjusts padding for smaller screens */
   }
@@ -1434,15 +1437,19 @@ main #sponsors .sponsors-list li a img {
   .citations-block {
     margin-left: 60px;
     width: 670px;
+    height: 400px;
    
    
   }
 }
 
+
+
+
 @media (max-width: 1090px) {
   .citations-block {
     width: 60%;
-    
+    height: 650px;
     margin-left: 150px;
     
   }
@@ -1469,5 +1476,11 @@ main #sponsors .sponsors-list li a img {
   }
   .about-description {
     width: 100%;
+  }
+}
+
+@media (max-width: 725px) {
+  .about-container {
+    max-width: 100%;
   }
 }
