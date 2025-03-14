@@ -291,18 +291,31 @@ document.addEventListener('DOMContentLoaded', setActiveMenu);
 document.addEventListener("DOMContentLoaded", () => {
     const langSwitcher = document.querySelector(".language-switcher");
     const langLinks = langSwitcher.querySelectorAll("a");
-  
+
+    // Function to update the active language in the UI
+    function updateActiveLang() {
+        const currentLang = localStorage.getItem('activeLang') || document.documentElement.lang;
+        langLinks.forEach(link => {
+            if (link.dataset.lang === currentLang) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    }
+
+    // Initially update active language based on local storage or default language
+    updateActiveLang();
+
     langLinks.forEach(link => {
         link.addEventListener("click", event => {
-          event.preventDefault();  // Отменяем стандартное поведение ссылки
-          const lang = link.getAttribute("data-lang");
-          const currentLang = document.documentElement.lang; // Получаем текущий язык страницы
+            event.preventDefault(); // Prevent default anchor click behavior
+            const lang = link.dataset.lang;
+            localStorage.setItem('activeLang', lang); // Save the chosen language in local storage
+            document.documentElement.lang = lang; // Update the lang attribute on the html element
 
-          // Переключаем только если выбран другой язык
-          if (lang !== currentLang) {
-            // Переключение на соответствующую страницу
+            // Change the URL and reload page
             window.location.href = lang === "ru" ? "index.html" : `index-${lang}.html`;
-          }
         });
     });
 });
@@ -315,7 +328,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const slides = document.querySelectorAll(".citation");
     const nextBtn = document.querySelector(".next-btn");
     let currentSlide = 0;
-    let interval;
 
     function showSlide(index) {
         slides.forEach(slide => slide.classList.remove("active"));
@@ -327,21 +339,9 @@ document.addEventListener("DOMContentLoaded", function () {
         showSlide(currentSlide);
     }
 
-    function startAutoSlide() {
-        interval = setInterval(nextSlide, 10000);
-    }
+    nextBtn.addEventListener("click", nextSlide);
 
-    function stopAutoSlide() {
-        clearInterval(interval);
-    }
-
-    nextBtn.addEventListener("click", function () {
-        stopAutoSlide();
-        nextSlide();
-        startAutoSlide();
-    });
-
-    // Инициализация
+    // Show initial slide
     showSlide(currentSlide);
-    startAutoSlide();
 });
+
