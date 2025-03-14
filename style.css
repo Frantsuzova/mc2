@@ -998,8 +998,11 @@ main #aims .description {
 
 @media (max-width: 768px) {
   .project-cards {
+    padding: 0;
+    margin: 0;
     grid-template-columns: calc(90% - 10px); /* Full width for mobile, adjust as needed */
   }
+
 }
 
 
