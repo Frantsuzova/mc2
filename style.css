@@ -382,6 +382,7 @@ header {
 .btn:hover {
   background: hsl(var(--hue), 70%, 43%);
 }
+
 .btn-ghost {
   color: hsl(var(--hue), 70%, 53%);
   background-color: transparent;
@@ -1122,6 +1123,39 @@ main #sponsors .sponsors-list li a img {
 .contact-form button:hover {
   background: #3a3261; /* Цвет при наведении */
 }
+
+.btn-ghost.btn-gradient {
+  position: relative;
+  color: #00b4db;
+  border: 1px solid #00b4db;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.btn-ghost.btn-gradient::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #00b4db 0%, #0083b0 100%);
+  z-index: -1;
+  transition: width 0.4s ease;
+}
+
+.btn-ghost.btn-gradient:hover::before {
+  width: 100%;
+}
+
+.btn-ghost.btn-gradient:hover {
+  color: white;
+  border-color: transparent;
+}
+
 
 
 
