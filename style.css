@@ -11,8 +11,10 @@ body {
   margin: 0;
   padding: 0;
   background: black;
+  text-align: left;
   font-family: Montserrat, sans-serif;
 }
+
 .glitch.active span:not(:last-child) {
   animation-duration: 0.3s;
 }
@@ -1377,46 +1379,27 @@ main #sponsors .sponsors-list li a img {
   }
 }
 
-.serbs{
+
+.brspacespb {
+  display: none;
+}
+@media (max-width: 1195px) {
+  .brspacespb {
+    display: block;
+  }
+}
+@media (max-width: 1200px) {
+  .brspacespb {
+    display: none;
+  }
+}
+
+.brsp{
   display: block;
 }
-.brspacesrb {
-  display: none;
-}
-.brspacesrbs {
-  display: none;
-}
-
-@media (max-width: 1250px) {
-  .brspacesrb {
-    display: block;
-  }
-
-}
-
-@media (max-width: 1250px) {
-
-  .brspacesrbs {
-    display: none;
-  }
-
-}
-
-@media (max-width: 1250px) {
-
-  .serbs{
-    display: none;
-  }
-}
-
-
-
 @media (max-width: 1195px) {
-  .brspacesrb {
+  .brspacespb {
     display: none;
-  }
-  .brspacesrbs {
-    display: block;
   }
 }
 
@@ -1428,8 +1411,14 @@ main #sponsors .sponsors-list li a img {
   color: white; /* Text color */
   display: flex;
   flex-direction: column; /* Stacks children vertically */
-  align-items: center; /* Centers children horizontally */
+  align-items: left; /* Centers children horizontally */
+  
 }
+
+.about-description h1 {
+  padding-bottom: 20px;
+}
+
 
 /* Styles for the right column (citations block) */
 .citations-block {
@@ -1459,6 +1448,7 @@ main #sponsors .sponsors-list li a img {
 /* Container for citations */
 .slider {
   position: relative;
+  padding: 0 50px;
   width: 100%; /* Full width to contain citations */
   height: auto;
 }
@@ -1468,8 +1458,9 @@ main #sponsors .sponsors-list li a img {
   text-align: left;
   display: none; /* Hidden by default */
   padding: 10px;
+  
   padding-left: 15px;
-  border-left: 4px solid #81a2be;
+  /*border-left: 4px solid #81a2be;*/
   transition: opacity 0.5s ease-in-out;
 }
 
@@ -1512,38 +1503,31 @@ main #sponsors .sponsors-list li a img {
 
 
 /* Кнопка переключения */
-.next-btn,.prev-btn {
-  position: absolute;
-  bottom: 10px;
-  right: 75px;
-  background: none;
- /* border: 2px solid #81a2be;*/
-  color: #81a2be;
-  padding: 8px 14px;
-  cursor: pointer;
-  font-size: 20px;
-  border-radius: 30%; 
-  transition: 0.3s ease-in-out;
-}
-.next-btn {
-  position: absolute;
-  bottom: 10px;
-  right: 15px;
-  background: none;
- /* border: 2px solid #81a2be;*/
-  color: #81a2be;
-  padding: 8px 14px;
-  cursor: pointer;
-  font-size: 20px;
-  border-radius: 30%; 
-  transition: 0.3s ease-in-out;
+.prev-btn, .next-btn {
+  background: none; /* Removes any background styling */
+  border: none; /* Removes borders */
+  color: #ccc; /* Sets the color of the buttons */
+  font-size: 24px; /* Adjust the size as needed */
+  cursor: pointer; /* Ensures the cursor changes to a pointer on hover */
+  padding: 10px 20px; /* Provides padding around the buttons */
+  position: absolute; /* Positions the buttons absolutely within their parent container */
+  top: 50%; /* Aligns buttons vertically center */
+  transform: translateY(-50%); /* Ensures the buttons are perfectly centered vertically */
 }
 
-.next-btn:hover,.prev-btn:hover {
-  background: #81a2be;
-  color: #2d2d2d;
-  box-shadow: 0 0 10px rgba(129, 162, 190, 0.8);
+.prev-btn {
+  left: 0; /* Positions the 'Back' button on the left */
 }
+
+.next-btn {
+  right: 0; /* Positions the 'Next' button on the right */
+}
+
+/* Hover effect for buttons */
+.prev-btn:hover, .next-btn:hover {
+  color: #fff; /* Changes color on hover */
+}
+
 
 /* Адаптивность */
 
