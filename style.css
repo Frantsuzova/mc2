@@ -1494,7 +1494,19 @@ main #sponsors .sponsors-list li a img {
 
 
 /* Кнопка переключения */
-.prev-btn, .next-btn {
+.prev-btn {
+  background: none; /* Removes any background styling */
+  border: none; /* Removes borders */
+  color: #ccc; /* Sets the color of the buttons */
+  font-size: 24px; /* Adjust the size as needed */
+  cursor: pointer; /* Ensures the cursor changes to a pointer on hover */
+  padding: 10px 20px; /* Provides padding around the buttons */
+  position: absolute; /* Positions the buttons absolutely within their parent container */
+  top: 45%; /* Aligns buttons vertically center */
+  transform: translateY(-50%); /* Ensures the buttons are perfectly centered vertically */
+}
+
+.next-btn {
   background: none; /* Removes any background styling */
   border: none; /* Removes borders */
   color: #ccc; /* Sets the color of the buttons */
