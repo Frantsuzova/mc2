@@ -784,6 +784,7 @@ header {
 .timeline.active {
   animation: expand 4s 0.6s forwards linear;
 }
+
 @media screen and (max-width: 750px) {
   .timeline {
     animation: none;
@@ -805,15 +806,19 @@ header {
   background: white;
 }
 .timeline .timeline__item .info {
-  display: grid;
-  grid-template-columns: repeat(3, auto) 1fr;
-  align-items: center;
-  gap: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem; /* или сколько нужно */
+  
 }
 .timeline .timeline__item .info h4 {
   margin: 0;
+  padding-left: 22px;
 }
-.timeline .timeline__item .info a {
+.timeline .timeline__item .info p {
+  margin: 0;
+  padding-left: 22px; /* Пример: отступ слева */
   text-decoration: none;
   color: #3498db;
 }
@@ -845,6 +850,14 @@ header {
 }
 .timeline .timeline__item .info .time {
   margin-right: 8px;
+  padding-left: 22px;
+}
+.timeline .timeline__item .info .affiliation {
+  font-size: 0.75rem;  /* Меньше размер, чтобы выглядело второстепенно */
+  color: #888;         /* Светло-серый цвет для ненавязчивости */
+  font-style: italic;  /* Курсив, если хочешь акцент */
+  margin-top: 4px;     /* Отступ сверху, чтобы не слиплось с h4 */
+  padding-left: 22px;  /* Выровнять по тексту */
 }
 .timeline .timeline__item .content {
   margin: 1rem 0 0 3.9rem;
@@ -1001,7 +1014,7 @@ main #infoaims .description {
 main #infoaims .place {
   display: flex;
   align-items: center;
-  padding-top: 60px;
+  padding: 20px;
   animation-delay: 0.6s;
 }
 main #infoaims .place .marker {
@@ -1010,6 +1023,7 @@ main #infoaims .place .marker {
 main #infoaims .place .place-name {
   font-size: 20px;
   font-weight: bold;
+
 }
 
 main #sponsors .sponsors-list {
