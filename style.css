@@ -1273,7 +1273,7 @@ main #sponsors .sponsors-list li a img {
 }
 .keywords-label{
   font-weight: bold;
-  color: #81a2be; /* Светло-голубой оттенок для выделения */
+  color: #569cd6; /* Светло-голубой оттенок для выделения */
 }
 .blinking-cursor {
   animation: blink 1s step-start infinite;
@@ -1613,4 +1613,18 @@ main #sponsors .sponsors-list li a img {
   .about-container {
     max-width: 100%;
   }
+}
+
+.prog {
+  font-weight: bold;
+  color: #0b85a0; /* Сочный голубой, как в кнопках */
+  background: #fff633; /* Яркий желтый маркер */
+  padding: 5px 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.prog:hover {
+  background: black; /* При наведении — черный фон */
+  color: #fff;       /* Белый текст для контраста */
 }
