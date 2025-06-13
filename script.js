@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = lang === "ru" ? "index.html" : `index-${lang}.html`;
           } else {
             // Если язык не поддерживается, остаемся на текущей странице
-            showErrorPopup("Error: The selected language is not supported!");
+           // showErrorPopup("Error: The selected language is not supported!");
           }
         });
       });
