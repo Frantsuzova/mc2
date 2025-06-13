@@ -289,49 +289,45 @@ document.addEventListener('DOMContentLoaded', setActiveMenu);
 
 // определяем язык
 document.addEventListener("DOMContentLoaded", () => {
-    const userLang = navigator.language || navigator.userLanguage;
-    const supportedLangs = ["ru", "en"];
-    localStorage.clear();
-  
-    if (location.pathname.endsWith("index.html")) {
-        const langCode = userLang.slice(0, 2).toLowerCase();
-        if (supportedLangs.includes(langCode) && langCode !== "ru") {
-        window.location.href = `index-${langCode}.html`;
-        return; // остановить дальнейшее выполнение, чтобы не мигало
-        }
+  const userLang = (navigator.language || navigator.userLanguage || "").slice(0, 2).toLowerCase();
+  const supportedLangs = ["ru", "en", "fr"];
+  const isRoot = location.pathname === "/" || location.pathname.endsWith("index.html");
+
+  // Автоперенаправление по языку браузера, если на корневой странице
+  if (isRoot) {
+    if (userLang !== "ru" && supportedLangs.includes(userLang)) {
+      const target = userLang === "en" ? "index-en.html"
+                   : userLang === "fr" ? "index-fr.html"
+                   : "index-en.html"; // fallback
+      window.location.href = target;
+      return;
     }
+  }
 
+  // Обновление выделения активного языка
+  const langSwitcher = document.querySelector(".language-switcher");
+  const langLinks = langSwitcher.querySelectorAll("a");
 
-    const langSwitcher = document.querySelector(".language-switcher");
-    const langLinks = langSwitcher.querySelectorAll("a");
-
-    // Function to update the active language in the UI
-    function updateActiveLang() {
-        const currentLang = localStorage.getItem('activeLang') || document.documentElement.lang;
-        langLinks.forEach(link => {
-            if (link.dataset.lang === currentLang) {
-                link.classList.add("active");
-            } else {
-                link.classList.remove("active");
-            }
-        });
-    }
-
-    // Initially update active language based on local storage or default language
-    updateActiveLang();
-
+  function updateActiveLang() {
+    const currentLang = localStorage.getItem('activeLang') || document.documentElement.lang;
     langLinks.forEach(link => {
-        link.addEventListener("click", event => {
-            event.preventDefault(); // Prevent default anchor click behavior
-            const lang = link.dataset.lang;
-            localStorage.setItem('activeLang', lang); // Save the chosen language in local storage
-            document.documentElement.lang = lang; // Update the lang attribute on the html element
-
-            // Change the URL and reload page
-            window.location.href = lang === "ru" ? "index.html" : `index-${lang}.html`;
-        });
+      link.classList.toggle("active", link.dataset.lang === currentLang);
     });
+  }
+
+  updateActiveLang();
+
+  langLinks.forEach(link => {
+    link.addEventListener("click", event => {
+      event.preventDefault();
+      const lang = link.dataset.lang;
+      localStorage.setItem('activeLang', lang);
+      document.documentElement.lang = lang;
+      window.location.href = lang === "ru" ? "index.html" : `index-${lang}.html`;
+    });
+  });
 });
+
 
 
 
