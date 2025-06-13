@@ -289,6 +289,19 @@ document.addEventListener('DOMContentLoaded', setActiveMenu);
 
 // определяем язык
 document.addEventListener("DOMContentLoaded", () => {
+    const userLang = navigator.language || navigator.userLanguage;
+    const supportedLangs = ["ru", "en"];
+    localStorage.clear();
+  
+    if (location.pathname.endsWith("index.html")) {
+        const langCode = userLang.slice(0, 2).toLowerCase();
+        if (supportedLangs.includes(langCode) && langCode !== "ru") {
+        window.location.href = `index-${langCode}.html`;
+        return; // остановить дальнейшее выполнение, чтобы не мигало
+        }
+    }
+
+
     const langSwitcher = document.querySelector(".language-switcher");
     const langLinks = langSwitcher.querySelectorAll("a");
 
