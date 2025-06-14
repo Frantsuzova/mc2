@@ -1631,8 +1631,8 @@ main #sponsors .sponsors-list li a img {
 
 .reg {
   font-weight: bold;
-  color: #0b85a0; /* Сочный голубой, как в кнопках */
-  background: #fff633; /* Яркий желтый маркер */
+  color: #09c7f1; /* Сочный голубой, как в кнопках */
+  
   
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transition: background 0.3s ease, color 0.3s ease;
