@@ -295,14 +295,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Автоперенаправление по языку браузера, если на корневой странице
   if (isRoot) {
-    if (userLang !== "ru" && supportedLangs.includes(userLang)) {
-      const target = userLang === "en" ? "index-en.html"
-                   : userLang === "fr" ? "index-fr.html"
-                   : "index-en.html"; // fallback
-      window.location.href = target;
-      return;
-    }
+  const hasHash = window.location.hash.length > 0;
+  const fromUserClick = sessionStorage.getItem('manualLangSwitch') === 'true';
+
+  if (!hasHash && !fromUserClick && userLang !== "ru" && supportedLangs.includes(userLang)) {
+    const target = userLang === "en" ? "index-en.html"
+                 : userLang === "fr" ? "index-fr.html"
+                 : "index-en.html"; // fallback
+    window.location.href = target;
+    return;
   }
+
+  sessionStorage.removeItem('manualLangSwitch'); // очистим флаг после загрузки
+  }
+
 
   // Обновление выделения активного языка
   const langSwitcher = document.querySelector(".language-switcher");
@@ -318,14 +324,16 @@ document.addEventListener("DOMContentLoaded", () => {
   updateActiveLang();
 
   langLinks.forEach(link => {
-    link.addEventListener("click", event => {
-      event.preventDefault();
-      const lang = link.dataset.lang;
-      localStorage.setItem('activeLang', lang);
-      document.documentElement.lang = lang;
-      window.location.href = lang === "ru" ? "index.html" : `index-${lang}.html`;
-    });
+  link.addEventListener("click", event => {
+    event.preventDefault();
+    const lang = link.dataset.lang;
+    localStorage.setItem('activeLang', lang);
+    sessionStorage.setItem('manualLangSwitch', 'true');
+    document.documentElement.lang = lang;
+    window.location.href = lang === "ru" ? "index.html" : `index-${lang}.html`;
   });
+});
+
 });
 
 
