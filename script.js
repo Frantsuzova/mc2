@@ -369,3 +369,57 @@ document.addEventListener("DOMContentLoaded", function () {
     showSlide(currentSlide);
   });
 
+// === AIMS GALLERY: вертикальные = 2×гор + gap (no-crop) ===
+(() => {
+  function syncVerticalHeights() {
+    const g = document.querySelector('.aims-gallery');
+    if (!g) return;
+
+    // row-gap в пикселях
+    const gap = parseFloat(getComputedStyle(g).rowGap) || 0;
+
+    // эталонная горизонтальная карточка
+    const h = g.querySelector('.frame.h');
+    if (!h) return;
+
+    // фактическая ВНЕШНЯЯ высота (border-box) горизонтальной
+    const hBox = h.getBoundingClientRect().height;
+
+    // целевая ВНЕШНЯЯ высота для вертикальных
+    const target = Math.round(hBox * 2 + gap);
+
+    // применяем: задаём явную высоту border-box
+    g.querySelectorAll('.frame.v').forEach(v => {
+      v.style.height = target + 'px';
+    });
+  }
+
+  // ждать картинки, чтобы размеры были корректны
+  function whenImagesReady(root, cb) {
+    const imgs = root.querySelectorAll('img');
+    if (!imgs.length) return cb();
+    let left = imgs.length;
+    const done = () => (--left === 0) && cb();
+    imgs.forEach(img => img.complete ? done() : img.addEventListener('load', done, { once: true }));
+  }
+
+  function init() {
+    const g = document.querySelector('.aims-gallery');
+    if (!g) return;
+    whenImagesReady(g, syncVerticalHeights);
+    // пересчитывать при ресайзе
+    let raf;
+    window.addEventListener('resize', () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(syncVerticalHeights);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  // на всякий случай ещё после полной загрузки
+  window.addEventListener('load', syncVerticalHeights);
+})();
