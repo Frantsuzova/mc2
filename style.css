@@ -1092,11 +1092,16 @@ main #sponsors .sponsors-list li a img {
 .contact-form {
   display: flex;
   padding: 10px;
+  margin-top: 12px;      /* отступ сверху */
+  margin-bottom: 10px;    /* отступ вниз от label до input */
   flex-direction: column;
   gap: 10px;
   max-width: 650px;
   margin: 20px auto; /* Центрирование формы */
 }
+
+
+
 
 .contact-form input,
 .contact-form textarea {
@@ -1104,6 +1109,8 @@ main #sponsors .sponsors-list li a img {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  margin-bottom: 18px; 
+  margin-top: 3px;
   font-size: 16px; /* Опционально: добавляем размер шрифта */
 }
 
@@ -1125,14 +1132,19 @@ main #sponsors .sponsors-list li a img {
 
 .btn-ghost.btn-gradient {
   position: relative;
-  color: #00b4db;
-  border: 1px solid #00b4db;
-  background: transparent;
+  display: inline-block;
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  padding: 1rem 2rem;
+  background: rgba(0, 180, 219, 0.4);
+  border: 2px solid #00b4db;
+  border-radius: 0;
   cursor: pointer;
-  overflow: hidden;
-  z-index: 1;
-  transition: color 0.3s ease;
+  clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 92%);
+  transition: all 0.3s ease;
 }
+
 
 .btn-ghost.btn-gradient::before {
   content: "";
