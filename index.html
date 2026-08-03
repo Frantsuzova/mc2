@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#121212" />
+  <meta name="description" content="C² Command — основной сайт временно недоступен. Проект «Голоса рек» доступен по ссылке." />
+  <title>C² Command</title>
+  <style>
+    :root {
+      --bg: rgb(18, 18, 18);
+      --fg: #f1f1ed;
+      --muted: #a7a7a2;
+      --accent: #18a8ff;
+      --pad: clamp(22px, 4vw, 64px);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { min-height: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      overflow-x: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .page {
+      position: relative;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100svh;
+      padding: var(--pad);
+      isolation: isolate;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .brand {
+      display: block;
+      width: clamp(118px, 15vw, 210px);
+      height: auto;
+    }
+
+    .topbar-side {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .status {
+      margin: 4px 0 0;
+      max-width: 460px;
+      text-align: right;
+      color: var(--muted);
+      font-size: clamp(10px, .85vw, 14px);
+      line-height: 1.35;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .lang-btn {
+      appearance: none;
+      border: 1px solid rgba(241, 241, 237, .22);
+      background: transparent;
+      color: var(--muted);
+      padding: 6px 10px;
+      min-width: 44px;
+      cursor: pointer;
+      font-size: 10px;
+      line-height: 1;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+    }
+
+    .lang-btn:hover,
+    .lang-btn:focus-visible {
+      color: var(--fg);
+      border-color: rgba(24,168,255,.8);
+      outline: none;
+    }
+
+    .lang-btn.is-active {
+      color: var(--fg);
+      border-color: var(--accent);
+      background: rgba(24,168,255,.08);
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      align-items: center;
+      min-height: 58vh;
+      padding: clamp(42px, 8vh, 96px) 0;
+    }
+
+    .art-wrap {
+      position: absolute;
+      z-index: 1;
+      inset: 7% -1% -8% 7%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .art {
+      width: min(95vw, 1350px);
+      height: auto;
+      max-height: 76vh;
+      object-fit: contain;
+      display: block;
+      opacity: .98;
+      mix-blend-mode: screen;
+    }
+
+    .footer {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .note {
+      max-width: min(560px, 52vw);
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(10px, .85vw, 14px);
+      line-height: 1.35;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
+
+    .note a.inline-link {
+      color: var(--fg);
+      text-decoration-color: rgba(24,168,255,.85);
+      text-underline-offset: 0.14em;
+    }
+
+    .project-link {
+      position: relative;
+      display: inline-block;
+      color: var(--fg);
+      text-decoration: none;
+      text-align: right;
+      font-family: Didot, "Bodoni MT", "Times New Roman", serif;
+      font-size: clamp(35px, 5.5vw, 90px);
+      line-height: .9;
+      letter-spacing: -.045em;
+      text-transform: uppercase;
+      transition: color .2s ease;
+      flex-shrink: 0;
+    }
+
+    .project-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -.12em;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(.16);
+      transform-origin: right;
+      transition: transform .35s cubic-bezier(.65, 0, .35, 1);
+    }
+
+    .project-link:hover,
+    .project-link:focus-visible { color: var(--accent); }
+
+    .project-link:hover::after,
+    .project-link:focus-visible::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .project-link:focus-visible {
+      outline: 1px solid var(--accent);
+      outline-offset: 8px;
+    }
+
+    @media (max-width: 920px) {
+      .hero {
+        min-height: 52vh;
+        padding: 6vh 0 2vh;
+      }
+
+      .art-wrap {
+        inset: 12% -12% 8% -1%;
+      }
+
+      .art {
+        width: 104vw;
+        max-height: none;
+      }
+
+      .footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .note {
+        max-width: 100%;
+      }
+
+      .project-link {
+        align-self: flex-start;
+        max-width: 90vw;
+        font-size: clamp(34px, 10vw, 58px);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        min-height: 100dvh;
+        padding: 18px;
+        gap: 18px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+      }
+
+      .brand { width: 122px; }
+
+      .topbar-side {
+        gap: 8px;
+      }
+
+      .status {
+        max-width: 158px;
+        margin-top: 0;
+        font-size: 8px;
+      }
+
+      .lang-btn {
+        min-width: 38px;
+        padding: 5px 8px;
+        font-size: 8px;
+      }
+
+      .hero {
+        min-height: 45vh;
+        align-items: start;
+        padding-top: 8vh;
+        padding-bottom: 1vh;
+      }
+
+      .art-wrap {
+        inset: 16% -10% 12% -2%;
+      }
+
+      .art {
+        width: 112vw;
+      }
+
+      .footer {
+        gap: 10px;
+      }
+
+      .note {
+        font-size: 8px;
+      }
+
+      .project-link {
+        font-size: clamp(30px, 9.5vw, 46px);
+        line-height: .92;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .page {
+        padding: 16px;
+      }
+
+      .hero {
+        min-height: 42vh;
+        padding-top: 7vh;
+      }
+
+      .art-wrap {
+        inset: 15% -8% 14% -1%;
+      }
+
+      .art {
+        width: 108vw;
+      }
+
+      .project-link {
+        font-size: 28px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .001ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <img class="brand" src="assets/c2-command-logo.png" alt="C² Command project" />
+
+      <div class="topbar-side">
+        <p class="status" id="statusText">Обновляем структуру и визуальный язык сайта</p>
+        <div class="lang-switcher" aria-label="Language switcher">
+          <button class="lang-btn is-active" type="button" data-lang="ru" aria-pressed="true">RU</button>
+          <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-btn" type="button" data-lang="sr" aria-pressed="false">SR</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero" aria-hidden="true">
+      <div class="art-wrap">
+        <img class="art" src="assets/line-art.jpg" alt="" />
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p class="note" id="noteText">Основной сайт временно недоступен.<br>Будем рады вашему участию в нашем проекте <a class="inline-link" href="voices-of-rivers.html" target="_blank" rel="noopener noreferrer">«Голоса рек»</a>.</p>
+      <a class="project-link" id="projectLink" href="voices-of-rivers.html" target="_blank" rel="noopener noreferrer">Голоса рек</a>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var translations = {
+        ru: {
+          lang: 'ru',
+          title: 'C² Command',
+          description: 'C² Command — основной сайт временно недоступен. Проект «Голоса рек» доступен по ссылке.',
+          status: 'Обновляем структуру и визуальный язык сайта',
+          note: 'Основной сайт временно недоступен.<br>Будем рады вашему участию в нашем проекте <a class="inline-link" href="voices-of-rivers.html" target="_blank" rel="noopener noreferrer">«Голоса рек»</a>.',
+          cta: 'Голоса рек'
+        },
+        en: {
+          lang: 'en',
+          title: 'C² Command',
+          description: 'C² Command — the main website is temporarily unavailable. The project “Voices of Rivers” is available via the link.',
+          status: 'Updating the site structure and visual language',
+          note: 'The main website is temporarily unavailable.<br>We invite you to take part in our project <a class="inline-link" href="voices-of-rivers.html" target="_blank" rel="noopener noreferrer">“Voices of Rivers”</a>.',
+          cta: 'Voices of Rivers'
+        },
+        sr: {
+          lang: 'sr',
+          title: 'C² Command',
+          description: 'C² Command — glavni sajt je privremeno nedostupan. Projekat „Glasovi reka” dostupan je putem linka.',
+          status: 'Ažuriramo strukturu i vizuelni jezik sajta',
+          note: 'Glavni sajt je privremeno nedostupan.<br>Biće nam drago da učestvujete u našem projektu <a class="inline-link" href="voices-of-rivers.html" target="_blank" rel="noopener noreferrer">„Glasovi reka”</a>.',
+          cta: 'Glasovi reka'
+        }
+      };
+
+      var buttons = Array.prototype.slice.call(document.querySelectorAll('.lang-btn'));
+      var statusText = document.getElementById('statusText');
+      var noteText = document.getElementById('noteText');
+      var projectLink = document.getElementById('projectLink');
+      var descriptionMeta = document.querySelector('meta[name="description"]');
+
+      function applyLanguage(lang) {
+        var t = translations[lang] || translations.ru;
+        document.documentElement.lang = t.lang;
+        document.title = t.title;
+        if (descriptionMeta) descriptionMeta.setAttribute('content', t.description);
+        statusText.textContent = t.status;
+        noteText.innerHTML = t.note;
+        projectLink.textContent = t.cta;
+
+        buttons.forEach(function (btn) {
+          var active = btn.getAttribute('data-lang') === lang;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+
+        try {
+          localStorage.setItem('c2-language', lang);
+        } catch (e) {}
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          applyLanguage(btn.getAttribute('data-lang'));
+        });
+      });
+
+      var savedLang = null;
+      try {
+        savedLang = localStorage.getItem('c2-language');
+      } catch (e) {}
+
+      applyLanguage(translations[savedLang] ? savedLang : 'ru');
+    })();
+  </script>
+</body>
+</html>
