@@ -2223,6 +2223,16 @@ html[data-current-lang="en"] .stub-cta-row .stub-cta[data-lang="en"] {
     transform: translateX(-60%) !important;
   }
 }
+</style><style>
+/* Archive is a separate editorial destination, not another participation form. */
+.stub-archive-links { display: flex; flex-direction: column; align-items: flex-start; gap: 0; margin-top: clamp(30px, 5vh, 56px); position: relative; z-index: 45; }
+.stub-archive-link { display: inline-flex; align-items: center; gap: 18px; width: fit-content; padding: 10px 0 12px; border-bottom: 1px solid rgba(23,23,23,.46); font-family: "Courier New", Courier, monospace; font-size: clamp(12px, 1vw, 14px); letter-spacing: .11em; text-transform: uppercase; line-height: 1.4; color: var(--ink); transition: border-color .2s ease, color .2s ease; }
+.stub-archive-link .archive-arrow { display: inline-block; font-family: Georgia, serif; font-size: 24px; line-height: .8; font-weight: 400; transition: transform .2s ease; }
+.stub-archive-link:hover, .stub-archive-link:focus-visible { color: var(--accent); border-color: var(--accent); }
+.stub-archive-link:hover .archive-arrow, .stub-archive-link:focus-visible .archive-arrow { transform: translate(4px, -3px); }
+.stub-archive-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+@media (max-width: 620px) { .stub-archive-links { margin-top: 26px; } .stub-archive-link { font-size: 11px; gap: 12px; } }
+@media (prefers-reduced-motion: reduce) { .stub-archive-link, .stub-archive-link .archive-arrow { transition: none; } }
 </style></head>
 <body>
 <main class="page">
@@ -2249,6 +2259,9 @@ html[data-current-lang="en"] .stub-cta-row .stub-cta[data-lang="en"] {
 <h1 class="stub-title text-shield" data-lang="ru">Голоса<br/>рек</h1>
 <h1 class="stub-title text-shield" data-lang="sr">Glasovi<br/>reka</h1>
 <h1 class="stub-title text-shield" data-lang="en">Voices<br/>of<br/>Rivers</h1>
+<div class="stub-archive-links">
+<a class="stub-archive-link text-shield" href="voices-of-rivers-archive.html"><span data-lang="ru">Цифровой архив</span><span data-lang="sr">Digitalni arhiv</span><span data-lang="en">Digital archive</span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+</div>
 </div><aside class="stub-action-panel"><p class="lead text-shield" data-lang="ru">Вы можете принять участие в проекте, написав своё воспоминание или размышление о городе и реке.</p><p class="lead text-shield" data-lang="sr">Možete učestvovati u projektu tako što ćete napisati svoje sećanje ili razmišljanje o gradu i reci.</p><p class="lead text-shield" data-lang="en">You can take part in the project by writing a memory or reflection about a city and a river.</p><div class="stub-cta-row"><a class="stub-cta" data-lang="ru" href="https://docs.google.com/forms/d/e/1FAIpQLSdCjX2gwnsjX-S-IFilHovnYUFb6aQVegsCHnaBNs8AQqNmSw/viewform" rel="noopener" target="_blank">Написать о Дунае</a><a class="stub-cta" data-lang="ru" href="https://docs.google.com/forms/d/e/1FAIpQLSd6MdJX1yIlIkC2QruRWgM60Da0ycs7-SmcMjIdUMfkekEvQQ/viewform" rel="noopener" target="_blank">Написать о Неве</a><a class="stub-cta" data-lang="sr" href="https://docs.google.com/forms/d/e/1FAIpQLSdCjX2gwnsjX-S-IFilHovnYUFb6aQVegsCHnaBNs8AQqNmSw/viewform" rel="noopener" target="_blank">Pisati o Dunavu</a><a class="stub-cta" data-lang="sr" href="https://docs.google.com/forms/d/e/1FAIpQLSd6MdJX1yIlIkC2QruRWgM60Da0ycs7-SmcMjIdUMfkekEvQQ/viewform" rel="noopener" target="_blank">Pisati o Nevi</a><a class="stub-cta" data-lang="en" href="https://docs.google.com/forms/d/e/1FAIpQLSdCjX2gwnsjX-S-IFilHovnYUFb6aQVegsCHnaBNs8AQqNmSw/viewform" rel="noopener" target="_blank">Write about the Danube</a><a class="stub-cta" data-lang="en" href="https://docs.google.com/forms/d/e/1FAIpQLSd6MdJX1yIlIkC2QruRWgM60Da0ycs7-SmcMjIdUMfkekEvQQ/viewform" rel="noopener" target="_blank">Write about the Neva</a></div><p class="stub-contact text-shield" data-lang="ru">Связаться с нами: <a href="mailto:contact@c2-command.art">contact@c2-command.art</a></p><p class="stub-contact text-shield" data-lang="sr">Kontakt: <a href="mailto:contact@c2-command.art">contact@c2-command.art</a></p><p class="stub-contact text-shield" data-lang="en">Contact us: <a href="mailto:contact@c2-command.art">contact@c2-command.art</a></p></aside><div aria-hidden="true" class="exact-river-shell hero-river-layer">
 <iframe class="v17-frame" id="v17-frame" scrolling="no" tabindex="-1" title="Painterly river boat"></iframe>
 </div><div aria-label="project by c2-command" class="producer-line"><span data-lang="ru">проект c<sup>2</sup>-command</span><span data-lang="sr">projekat c<sup>2</sup>-command</span><span data-lang="en">project c<sup>2</sup>-command</span></div></section>
